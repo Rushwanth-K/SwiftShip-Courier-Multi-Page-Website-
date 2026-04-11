@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — SwiftShip Courier</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy:        '#0f172a',
+            'navy-800':  '#1e293b',
+            brand:       '#f97316',
+            'brand-dark':'#ea6c0a',
+            light:       '#f8fafc',
+            muted:       '#64748b',
+            border:      '#e2e8f0',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.45s ease both; }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #f97316;
+      box-shadow: 0 0 0 3px rgba(249,115,22,0.15);
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .slide-up { animation: slideUp 0.4s ease both; }
+  </style>
+</head>
+<body class="bg-light font-sans text-navy antialiased">
+
+  <!-- ── NAVBAR ─────────────────────────────────────────────── -->
+  <nav class="sticky top-0 z-50 bg-white border-b border-border">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
+
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="w-8 h-8 bg-brand rounded-lg flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0v10l-8 4m-8-4V7m8 4v10"/>
+          </svg>
+        </div>
+        <span class="font-extrabold text-navy text-lg tracking-tight">Swift<span class="text-brand">Ship</span></span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-1">
+        <a href="index.html"    class="px-4 py-2 rounded-lg text-sm font-medium text-muted hover:text-navy hover:bg-light transition-colors">Home</a>
+        <a href="about.html"   class="px-4 py-2 rounded-lg text-sm font-medium text-muted hover:text-navy hover:bg-light transition-colors">About Us</a>
+        <a href="services.html" class="px-4 py-2 rounded-lg text-sm font-medium text-muted hover:text-navy hover:bg-light transition-colors">Services</a>
+        <a href="whyus.html"   class="px-4 py-2 rounded-lg text-sm font-medium text-muted hover:text-navy hover:bg-light transition-colors">Why Us</a>
+        <a href="track.html"   class="px-4 py-2 rounded-lg text-sm font-medium text-muted hover:text-navy hover:bg-light transition-colors">Track</a>
+        <a href="contact.html" class="px-4 py-2 rounded-lg text-sm font-medium bg-brand/10 text-brand">Contact</a>
+      </div>
+
+      <a href="contact.html" class="hidden md:inline-flex items-center gap-2 bg-brand text-white text-sm font-bold px-5 py-2.5 rounded-xl hover:bg-brand-dark transition-colors">
+        Book Now
+      </a>
+
+      <button class="md:hidden p-2 rounded-lg text-muted hover:bg-light" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden border-t border-border bg-white px-6 py-4 flex flex-col gap-2">
+      <a href="index.html"    class="py-2 text-sm font-medium text-muted">Home</a>
+      <a href="about.html"   class="py-2 text-sm font-medium text-muted">About Us</a>
+      <a href="services.html" class="py-2 text-sm font-medium text-muted">Services</a>
+      <a href="whyus.html"   class="py-2 text-sm font-medium text-muted">Why Us</a>
+      <a href="track.html"   class="py-2 text-sm font-medium text-muted">Track</a>
+      <a href="contact.html" class="py-2 text-sm font-medium text-brand">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ── PAGE HEADER ────────────────────────────────────────── -->
+  <section class="bg-navy text-white py-16 px-6">
+    <div class="max-w-6xl mx-auto fade-up">
+      <div class="inline-flex items-center gap-2 bg-white/10 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest text-brand mb-4">
+        Get In Touch
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-3">
+        Contact Us
+      </h1>
+      <p class="text-white/60 text-lg max-w-xl">
+        Have a question, want to book a shipment, or need support? We're here and ready to help — Mon to Sat, 9am to 7pm.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── CONTACT INFO CARDS ─────────────────────────────────── -->
+  <section class="py-12 px-6 bg-white border-b border-border">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-5">
+
+      <!-- Phone -->
+      <div class="flex items-center gap-4 bg-light border border-border rounded-2xl p-5">
+        <div class="w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="text-xs text-muted font-semibold uppercase tracking-widest mb-1">Phone</p>
+          <a href="tel:+919025007753" class="font-bold text-navy text-sm hover:text-brand transition-colors">+91 90250 07753</a>
+          <p class="text-muted text-xs mt-0.5">Mon–Sat, 9am – 7pm</p>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="flex items-center gap-4 bg-light border border-border rounded-2xl p-5">
+        <div class="w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="text-xs text-muted font-semibold uppercase tracking-widest mb-1">Email</p>
+          <a href="mailto:info@swiftship.in" class="font-bold text-navy text-sm hover:text-brand transition-colors">info@swiftship.in</a>
+          <p class="text-muted text-xs mt-0.5">We reply within minutes</p>
+        </div>
+      </div>
+
+      <!-- Address -->
+      <div class="flex items-center gap-4 bg-light border border-border rounded-2xl p-5">
+        <div class="w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="text-xs text-muted font-semibold uppercase tracking-widest mb-1">Office</p>
+          <p class="font-bold text-navy text-sm">Trichy, Tamil Nadu</p>
+          <p class="text-muted text-xs mt-0.5">Near Chathiram Bus Stand</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FORM + MAP ─────────────────────────────────────────── -->
+  <section class="py-16 px-6">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+      <!-- Contact Form -->
+       
+      <div class="bg-white border border-border rounded-2xl p-8">
+        <h2 class="text-xl font-extrabold text-navy mb-1">Send Us a Message</h2>
+        <p class="text-muted text-sm mb-8">Fill in the form and our team will call you back shortly.</p>
+
+        <div id="formArea">
+          <div class="flex flex-col gap-5">
+         <form class="flex-[1.5] min-w-[280px]"
+          action="https://formspree.io/f/xykbvwzq"
+          method="POST">
+
+            <!-- Name + Phone -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-semibold text-navy uppercase tracking-widest">Full Name</label>
+                <input id="fname" name="Name" type="text" placeholder="Ramesh Kumar"
+                  class="border border-border rounded-xl px-4 py-3 text-sm text-navy placeholder-muted/40 transition-all" />
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-semibold text-navy uppercase tracking-widest">Phone Number</label>
+                <input id="fphone" name="Phone" type="tel" placeholder="+91 98765 43210"
+                  class="border border-border rounded-xl px-4 py-3 text-sm text-navy placeholder-muted/40 transition-all" />
+              </div>
+            </div>
+
+            <!-- Service -->
+            <div class="flex flex-col gap-1.5">
+              <label class="text-xs font-semibold text-navy uppercase tracking-widest">Service Needed</label>
+              <select id="fservice" name="Service Needed" class="border border-border rounded-xl px-4 py-3 text-sm text-navy transition-all bg-white">
+                <option value="" disabled selected>Select a service...</option>
+                <option>Local Delivery</option>
+                <option>Intercity Courier</option>
+                <option>Express Delivery</option>
+                <option>Document Courier</option>
+                <option>Fragile Item Handling</option>
+                <option>Bulk Business Courier</option>
+                <option>General Enquiry</option>
+              </select>
+            </div>
+
+            <!-- From + To -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-semibold text-navy uppercase tracking-widest">Pickup City</label>
+                <input id="ffrom"   type="text" placeholder="e.g. Trichy"
+                  class="border border-border rounded-xl px-4 py-3 text-sm text-navy placeholder-muted/40 transition-all" />
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-semibold text-navy uppercase tracking-widest">Delivery City</label>
+                <input id="fto" type="text" placeholder="e.g. Chennai"
+                  class="border border-border rounded-xl px-4 py-3 text-sm text-navy placeholder-muted/40 transition-all" />
+              </div>
+            </div>
+
+            <!-- Message -->
+            <div class="flex flex-col gap-1.5">
+              <label class="text-xs font-semibold text-navy uppercase tracking-widest">Message (Optional)</label>
+              <textarea id="fmessage" rows="4" placeholder="Tell us more about your shipment — package size, weight, special instructions..."
+                class="border border-border rounded-xl px-4 py-3 text-sm text-navy placeholder-muted/40 transition-all resize-none"></textarea>
+            </div>
+
+            <!-- Submit -->
+            <button onclick="submitForm()"
+              class="w-full bg-brand text-white font-bold py-3.5 rounded-xl hover:bg-brand-dark transition-colors text-sm">
+              Send Message
+            </button>
+
+          </div>
+        </div>
+
+        <!-- Success State -->
+        <div id="successMsg" class="hidden text-center py-8 slide-up">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <h3 class="font-extrabold text-navy text-lg mb-2">Message Sent!</h3>
+          <p class="text-muted text-sm mb-6">Thank you! Our team will call you back within a few minutes.</p>
+          <button onclick="resetForm()" class="text-brand font-semibold text-sm hover:underline">Send another message</button>
+        </div>
+
+      </div>
+
+      <!-- Map + Office Info -->
+      <div class="flex flex-col gap-5">
+
+        <!-- Google Map Embed — Trichy Chathiram Bus Stand area -->
+        <div class="rounded-2xl overflow-hidden border border-border" style="height: 320px;">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.9!2d78.6833!3d10.8050!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baaf5f0b84a8f5d%3A0xabcdef1234567890!2sChathiram%20Bus%20Stand%2C%20Tiruchirappalli!5e0!3m2!1sen!2sin!4v1700000000000"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <!-- Office Details -->
+        <div class="bg-white border border-border rounded-2xl p-6">
+          <h3 class="font-extrabold text-navy mb-5">Office Information</h3>
+          <div class="flex flex-col gap-4">
+
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 bg-brand/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-muted font-semibold uppercase tracking-widest mb-0.5">Address</p>
+                <p class="text-sm font-medium text-navy">Near Chathiram Bus Stand,<br/>Trichy – 620 002, Tamil Nadu</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 bg-brand/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-muted font-semibold uppercase tracking-widest mb-0.5">Working Hours</p>
+                <p class="text-sm font-medium text-navy">Monday – Saturday: 9:00 AM – 7:00 PM</p>
+                <p class="text-sm text-muted">Sunday: Closed</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 bg-brand/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-muted font-semibold uppercase tracking-widest mb-0.5">Phone</p>
+                <a href="tel:+919025007753" class="text-sm font-bold text-navy hover:text-brand transition-colors">+91 90250 07753</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 bg-brand/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-muted font-semibold uppercase tracking-widest mb-0.5">Email</p>
+                <a href="mailto:info@swiftship.in" class="text-sm font-bold text-navy hover:text-brand transition-colors">info@swiftship.in</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer class="bg-navy-800 text-white py-12 px-6 border-t border-white/10">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-8 h-8 bg-brand rounded-lg flex items-center justify-center">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0v10l-8 4m-8-4V7m8 4v10"/>
+            </svg>
+          </div>
+          <span class="font-extrabold text-lg">Swift<span class="text-brand">Ship</span></span>
+        </div>
+        <p class="text-white/50 text-sm leading-relaxed">Trichy's trusted courier partner since 2016. Fast, safe, reliable.</p>
+      </div>
+
+      <div>
+        <p class="text-white/30 text-xs font-semibold uppercase tracking-widest mb-4">Pages</p>
+        <div class="flex flex-col gap-2">
+          <a href="index.html"     class="text-white/60 text-sm hover:text-brand transition-colors">Home</a>
+          <a href="about.html"    class="text-white/60 text-sm hover:text-brand transition-colors">About Us</a>
+          <a href="services.html" class="text-white/60 text-sm hover:text-brand transition-colors">Services</a>
+          <a href="whyus.html"    class="text-white/60 text-sm hover:text-brand transition-colors">Why Us</a>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-white/30 text-xs font-semibold uppercase tracking-widest mb-4">Services</p>
+        <div class="flex flex-col gap-2">
+          <span class="text-white/60 text-sm">Local Delivery</span>
+          <span class="text-white/60 text-sm">Intercity Courier</span>
+          <span class="text-white/60 text-sm">Express Delivery</span>
+          <span class="text-white/60 text-sm">Bulk Business</span>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-white/30 text-xs font-semibold uppercase tracking-widest mb-4">Contact</p>
+        <div class="flex flex-col gap-2">
+          <a href="tel:+919025007753"      class="text-white/60 text-sm hover:text-brand transition-colors">+91 90250 07753</a>
+          <a href="track.html"            class="text-white/60 text-sm hover:text-brand transition-colors">Track Shipment</a>
+          <a href="contact.html"          class="text-white/60 text-sm hover:text-brand transition-colors">Contact Us</a>
+          <p class="text-white/60 text-sm">Trichy, Tamil Nadu</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="max-w-6xl mx-auto mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-2">
+      <p class="text-white/30 text-xs">© 2025 SwiftShip Courier Services. All rights reserved.</p>
+      <p class="text-white/30 text-xs">Trichy, Tamil Nadu, India</p>
+    </div>
+  </footer>
+
+  <!-- ── JAVASCRIPT ─────────────────────────────────────────── -->
+  <script>
+    function submitForm() {
+      const name    = document.getElementById('fname').value.trim();
+      const phone   = document.getElementById('fphone').value.trim();
+      const service = document.getElementById('fservice').value;
+
+      if (!name || !phone || !service) {
+        alert('Please fill in your name, phone number, and select a service.');
+        return;
+      }
+
+      document.getElementById('formArea').classList.add('hidden');
+      document.getElementById('successMsg').classList.remove('hidden');
+    }
+
+    function resetForm() {
+      document.getElementById('fname').value    = '';
+      document.getElementById('fphone').value   = '';
+      document.getElementById('fservice').value = '';
+      document.getElementById('ffrom').value    = '';
+      document.getElementById('fto').value      = '';
+      document.getElementById('fmessage').value = '';
+      document.getElementById('formArea').classList.remove('hidden');
+      document.getElementById('successMsg').classList.add('hidden');
+    }
+  </script>
+
+</body>
+</html>
